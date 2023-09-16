@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 
 class DetailsFragment : Fragment() {
 
-    private var detailsTitle: TextView? = null
+    private var oldSuperhero: Superhero? = null
+
+    private lateinit var detailsTitle: TextView
+    private lateinit var detailsDesc: TextView
     private lateinit var detailsImage: ImageView
-    var description = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,8 +28,18 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         detailsTitle = view.findViewById(R.id.detailsTitle)
-        detailsImage = view.findViewById(R.id.superheroImage)
-        detailsTitle?.text = description
+        detailsDesc = view.findViewById(R.id.detailsDesc)
+        detailsImage = view.findViewById(R.id.detailsImage)
+
+        detailsTitle.text = oldSuperhero?.name
+        detailsDesc.text = oldSuperhero?.work?.occupation
+        Glide.with(view)
+            .load(oldSuperhero?.images?.xs)
+            .into(detailsImage)
+    }
+
+    fun setSuperHero(newSuperhero: Superhero) {
+        oldSuperhero = newSuperhero
     }
 
 }

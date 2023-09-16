@@ -11,5 +11,6 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-data class Superhero(val name: String, val images: Images)
+data class Superhero(val name: String, val images: Images, val work: Works)
+data class Works(val occupation: String)
 data class Images(val xs: String)

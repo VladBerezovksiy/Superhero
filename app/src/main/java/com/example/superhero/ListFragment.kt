@@ -16,8 +16,6 @@ import io.reactivex.schedulers.Schedulers
 
 class ListFragment : Fragment() {
 
-    private var onItemClick: (String) -> Unit = {}
-
     val api = ApiClient.client.create(ApiInterface::class.java)
 
     override fun onCreateView(
@@ -38,7 +36,7 @@ class ListFragment : Fragment() {
             .subscribe({
                 if (it.isNotEmpty()) {
                     val superheroes = it
-                    val myAdapter = SuperheroAdapter(superheroes, {})
+                    val myAdapter = SuperheroAdapter(superheroes)
                     listView.adapter = myAdapter
                 }
             }, {

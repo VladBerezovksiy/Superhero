@@ -29,7 +29,4 @@ class DetailsFragment : Fragment() {
         detailsTitle?.text = description
     }
 
-    fun show() {
-        detailsTitle?.text = description
-    }
 }

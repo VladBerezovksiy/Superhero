@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="horizontal"
+    android:gravity="center"
+    android:orientation="vertical"
     android:padding="8dp">
 
     <ImageView
-        android:id="@+id/superheroImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/detailsImage"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:src="@android:drawable/star_on" />
 
     <TextView
